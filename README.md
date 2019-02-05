@@ -8,3 +8,7 @@ Projeto criado com:
 - Maven
 - JQuery
 - Bootstrap
+- JMS
+- ActiveMQ
+
+A chamada inicial da página é feita pela URL http://localhost:8080/produtos
