@@ -25,8 +25,10 @@ var produto = {
 									"</th><th>" + value.quantidade + 
 									"</th><th>" + value.preco + 
 									"</th><th>" + 
-					"<button type='button' class='btn-update btn btn-primary'>Alterar</button>" + 
-					"<button type='button' class='btn-delete btn btn-danger'>Excluir</button></th></tr>";
+					"<button type='button' class='btn-update btn btn-primary'>Alterar</button>&nbsp" + 
+					"<button type='button' class='btn-delete btn btn-danger'>Excluir</button>&nbsp" +
+					"<button type='button' class='btn-sell btn btn-success'>Vender</button>&nbsp" +
+					"<input id='qtdVenda' type='text' maxlength='3' /></th></tr>";
 				
 				$("table tbody").append(row);
 			});
@@ -42,6 +44,21 @@ var produto = {
 			produto.listar();
 		});
 		
+		$(document).on("click", ".btn-sell", function(){
+			produto.vender($(this));
+			produto.listar();
+		});
+		
+	},
+	
+	vender: function(btn) {
+		var id = btn.parents("th").siblings()[0].textContent;
+		var qtdVenda = btn.siblings("#qtdVenda").val();
+		
+		if(qtdVenda.match(/^\d+/)){
+			$.post(`http://localhost:8080/venda/${id}/${qtdVenda}`);
+			form.clear();
+		}
 	},
 	
 	salvar: function() {

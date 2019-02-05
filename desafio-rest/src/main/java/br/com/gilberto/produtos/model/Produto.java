@@ -62,5 +62,8 @@ public class Produto {
 	public void setPreco(BigDecimal preco) {
 		this.preco = preco;
 	}
+	public void venda(int quantidade) {
+		this.quantidade -= quantidade;
+	}
 	
 }
