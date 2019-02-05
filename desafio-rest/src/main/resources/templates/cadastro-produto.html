@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Cadastro de Produto</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/desafio.css}">
+</head>
+
+<body>
+	<div class="container">
+		<nav class="navbar" id="main-navbar">
+			<h1>Sistema de Produtos</h1>
+		</nav>
+		<div>
+			<div class="row">
+				<div class="col-8">
+					<div class="form-group">
+						<label for="nome">Nome</label>
+		
+						<input id="nome" type="text" class="form-control text-uppercase" />
+					</div>
+				</div>
+	
+				<div class="col-2">
+					<div class="form-group">
+						<label for="quantidade">Quantidade</label>
+
+						<input id="quantidade" type="text" class="form-control quantidade" />
+					</div>
+				</div>
+
+				<div class="col">
+					<div class="form-group">
+						<label for="preco">Preço</label>
+						
+						<input id="preco" type="text" class="form-control preco" />
+					</div>
+				</div>
+				<input id="id" type="text" class="d-none" />
+			</div>
+	
+			<div class="form-group">
+				<button class="btn  btn-primary" type="submit" id="btn-submit">Salvar</button>
+			</div>
+			<div id="lista-produtos">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th scope="col">#</th>
+							<th scope="col">Nome</th>
+							<th scope="col">Quantidade</th>
+							<th scope="col">Preço</th>
+							<th scope="col">Ações</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="row">1</th>
+							<th>PRODUTO A</th>
+							<th>10</th>
+							<th>10,00</th>
+							<th>
+								<button type="button" class="btn-update btn btn-primary" data-row=1>Alterar</button>
+								<button type="button" class="btn-delete btn btn-danger" data-row=1>Excluir</button>
+							</th>
+						</tr>
+					</tbody>
+  				</table>
+			</div>
+		</div>
+	</div>
+	<script th:src="@{/js/jquery-3.3.1.min.js}"></script>
+	<script th:src="@{/js/jquery.mask.min.js}"></script>
+	<script th:src="@{/js/desafio.js}"></script>
+
+	<script>
+		jQuery('.quantidade').mask("000", { reverse: true });
+		jQuery('.preco').mask("#.##0,00", { reverse: true });
+	</script>
+</body>
+</html>
